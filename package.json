@@ -1,7 +1,7 @@
 {
   "name": "知天气",
   "version": "1.0.0",
-  "description": "知天意，逆天难",
+  "description": "知天易，逆天难",
   "main": "main.js",
   "dependencies": {
     "grunt": "^0.4.5",

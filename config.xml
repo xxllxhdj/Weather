@@ -2,7 +2,7 @@
 <widget id="cn.personal.weather" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>知天气</name>
   <description>
-        知天意，逆天难
+        知天易，逆天难
     </description>
   <author email="tx082xuxl@126.com">
         Personal
@@ -42,6 +42,6 @@
     <allow-intent href="itms-apps:*"/>
   </platform>
   <preference name="SplashScreen" value="screen"/>
-  <preference name="SplashScreenDelay" value="3000"/>
+  <preference name="SplashScreenDelay" value="20000"/>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
 </widget>

@@ -6,7 +6,13 @@ requirejs.config({
     baseUrl: '../www',
     paths: {
         app: 'js/app',
-        ionic: 'lib/ionic/js/ionic.bundle'
+        ionic: 'lib/ionic/js/ionic.bundle',
+        ngCordova: 'lib/ngCordova/dist/ng-cordova'
+    },
+    shim: {
+        ngCordova: {
+            deps: ['ionic']
+        }
     }
 });
 

@@ -1,0 +1,14 @@
+
+/**********************************************************Common******************************************************/
+
+[nav-view-transition="ios"] [nav-view="entering"],
+[nav-view-transition="ios"] [nav-view="leaving"] {
+    -webkit-transition-property: -webkit-transform;
+    transition-property: transform;
+}
+[nav-view-transition="ios"][nav-view-direction="forward"],
+[nav-view-transition="ios"][nav-view-direction="back"] {
+    background-color: transparent;
+}
+
+/**********************************************************Common******************************************************/
