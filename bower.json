@@ -1,0 +1,18 @@
+{
+  "name": "知天气",
+  "version": "1.0.0",
+  "authors": [
+    "xxl <tx082xuxl@126.com>"
+  ],
+  "description": "知天意，逆天难",
+  "main": "main.js",
+  "keywords": [
+    "Weather"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.1",
+    "ngCordova": "~0.1.20-alpha",
+    "requirejs": "~2.1.20"
+  }
+}
