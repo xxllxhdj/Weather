@@ -2,11 +2,14 @@
 define([
     'ionic',
     'ngCordova',
+    'js/help',
 
     'js/controllers/controllers',
+    'js/controllers/HomeCtrl',
 
     'js/services/services',
     'js/services/initService',
+    'js/services/weatherService',
 
     'js/utility/utility',
     'js/utility/APPCONSTANTS'
@@ -44,7 +47,8 @@ define([
                 $stateProvider
                     .state('home', {
                         url: '/home',
-                        templateUrl: 'tpls/home.html'
+                        templateUrl: 'tpls/home.html',
+                        controller: 'HomeCtrl'
                     });
 
                 $urlRouterProvider.otherwise('/home');

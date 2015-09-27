@@ -1,6 +1,6 @@
 
 define(['ionic', 'js/services/services'], function () {
-    angular.module('weather.services', [])
+    angular.module('weather.services')
         .factory('initService', ['$q', '$timeout', '$ionicPlatform', '$ionicHistory', '$cordovaToast', 'APPCONSTANTS',
             function ($q, $timeout, $ionicPlatform, $ionicHistory, $cordovaToast, APPCONSTANTS) {
                 var _initDefer = $q.defer(),
