@@ -1,6 +1,25 @@
 
 /**********************************************************Common******************************************************/
 
+.platform-android.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) {
+    height: 59px; }
+.platform-android.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
+    margin-top: 14px !important; }
+.platform-android.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
+    margin-top: 15px; }
+.platform-android.platform-cordova:not(.fullscreen) .tabs-top > .tabs, .platform-android.platform-cordova:not(.fullscreen) .tabs.tabs-top {
+    top: 59px; }
+.platform-android.platform-cordova:not(.fullscreen) .has-header, .platform-android.platform-cordova:not(.fullscreen) .bar-subheader {
+    top: 59px; }
+.platform-android.platform-cordova:not(.fullscreen) .has-subheader {
+    top: 103px; }
+.platform-android.platform-cordova:not(.fullscreen) .has-header.has-tabs-top {
+    top: 108px; }
+.platform-android.platform-cordova:not(.fullscreen) .has-header.has-subheader.has-tabs-top {
+    top: 152px; }
+.platform-android.platform-cordova.status-bar-hide {
+    margin-bottom: 15px; }
+
 [nav-view-transition="ios"] [nav-view="entering"],
 [nav-view-transition="ios"] [nav-view="leaving"] {
     -webkit-transition-property: -webkit-transform;
@@ -9,6 +28,22 @@
 [nav-view-transition="ios"][nav-view-direction="forward"],
 [nav-view-transition="ios"][nav-view-direction="back"] {
     background-color: transparent;
+}
+
+.weather-pane {
+    background: -moz-linear-gradient(top, #000000 0%, #002852 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000), color-stop(100%, #002852));
+    background: -webkit-linear-gradient(top, #000000 0%, #002852 100%);
+    background: -o-linear-gradient(top, #000000 0%, #002852 100%);
+    background: -ms-linear-gradient(top, #000000 0%, #002852 100%);
+    background: linear-gradient(to bottom, #000000 0%, #002852 100%);
+}
+
+.weather-bar {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    color: #fff;
 }
 
 /**********************************************************Common******************************************************/
