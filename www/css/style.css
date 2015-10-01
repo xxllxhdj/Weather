@@ -2,23 +2,23 @@
 /**********************************************************Common******************************************************/
 
 .platform-android.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) {
-    height: 59px; }
+    height: 64px; }
 .platform-android.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
-    margin-top: 14px !important; }
+    margin-top: 19px !important; }
 .platform-android.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
-    margin-top: 15px; }
+    margin-top: 20px; }
 .platform-android.platform-cordova:not(.fullscreen) .tabs-top > .tabs, .platform-android.platform-cordova:not(.fullscreen) .tabs.tabs-top {
-    top: 59px; }
+    top: 64px; }
 .platform-android.platform-cordova:not(.fullscreen) .has-header, .platform-android.platform-cordova:not(.fullscreen) .bar-subheader {
-    top: 59px; }
+    top: 64px; }
 .platform-android.platform-cordova:not(.fullscreen) .has-subheader {
-    top: 103px; }
-.platform-android.platform-cordova:not(.fullscreen) .has-header.has-tabs-top {
     top: 108px; }
+.platform-android.platform-cordova:not(.fullscreen) .has-header.has-tabs-top {
+    top: 123px; }
 .platform-android.platform-cordova:not(.fullscreen) .has-header.has-subheader.has-tabs-top {
-    top: 152px; }
+    top: 157px; }
 .platform-android.platform-cordova.status-bar-hide {
-    margin-bottom: 15px; }
+    margin-bottom: 20px; }
 
 [nav-view-transition="ios"] [nav-view="entering"],
 [nav-view-transition="ios"] [nav-view="leaving"] {
@@ -47,3 +47,24 @@
 }
 
 /**********************************************************Common******************************************************/
+
+/*********************************************************home.html****************************************************/
+
+.weather-slide-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    margin-top: -1px;
+    padding-top: 1px;
+    margin-bottom: -1px;
+    width: auto;
+    height: auto;
+}
+.weather-slide-box  .slider-pager .slider-pager-page {
+    color: #fff;
+}
+
+/*********************************************************home.html****************************************************/

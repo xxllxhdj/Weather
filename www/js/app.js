@@ -34,6 +34,9 @@ define([
                         initService.initPromise.then(function () {
                             $timeout(function () {
                                 navigator.splashscreen.hide();
+                                if (window.StatusBar) {
+                                    StatusBar.show();
+                                }
                             }, APPCONSTANTS.splashScreenExtraDelay);
                         });
                     }

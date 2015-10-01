@@ -41,6 +41,7 @@
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
   </platform>
+  <preference name="Fullscreen" value="true" />
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="20000"/>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
