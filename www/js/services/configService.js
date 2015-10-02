@@ -4,7 +4,9 @@ define(['ionic', 'js/services/services'], function () {
         .factory('configService', ['$q', '$cordovaFile', 'utilService', 'APPCONSTANTS',
             function ($q, $cordovaFile, utilService, APPCONSTANTS) {
                 var configDefer = $q.defer(),
-                    config = {},
+                    config = {
+                        weather: []
+                    },
                     o = {
                         loadingPromise: configDefer.promise,
                         set: angular.noop,

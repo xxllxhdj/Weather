@@ -76,8 +76,29 @@
 
 /*******************************************************manager.html***************************************************/
 
+.city-list .city-item {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-bottom: none;
+    color: #fff;
+}
+.city-list .city-item:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.city-item .item-content {
+    background-color: transparent;
+}
+.city-item .item-options .button {
+    background-color: rgba(255, 0, 0, 0.5);
+    color: #fff;
+    font-size: 26px;
+}
+
 .manager-footer-bar {
     height: 130px;
+}
+.manager-view .has-footer {
+    bottom: 130px;
 }
 
 .function-bar {
@@ -216,7 +237,9 @@
 .suggest-row .col:last-child {
     border-right: none;
 }
-
+.suggest-row .col.activated {
+    background: rgba(255, 255, 255, 0.12);
+}
 
 .search-wrapper .search-title {
     background: rgba(255, 255, 255, 0.1);
@@ -250,5 +273,9 @@
 .search-list .search-item:last-child {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
+.search-list .search-item.activated {
+    background: rgba(255, 255, 255, 0.12);
+}
+
 
 /*********************************************************add.html*****************************************************/

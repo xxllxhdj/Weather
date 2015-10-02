@@ -7,6 +7,7 @@ define([
 
     'js/controllers/controllers',
     'js/controllers/HomeCtrl',
+    'js/controllers/ManagerCtrl',
     'js/controllers/AddCtrl',
 
     'js/services/services',
@@ -14,6 +15,7 @@ define([
     'js/services/configService',
     'js/services/locationService',
     'js/services/weatherService',
+    'js/services/cityWeatherService',
 
     'js/utility/utility',
     'js/utility/APPCONSTANTS',
@@ -60,7 +62,8 @@ define([
                     })
                     .state('manager', {
                         url: '/manager',
-                        templateUrl: 'tpls/manager.html'
+                        templateUrl: 'tpls/manager.html',
+                        controller: 'ManagerCtrl'
                     })
                     .state('add', {
                         url: '/add',

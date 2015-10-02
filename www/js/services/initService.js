@@ -1,8 +1,8 @@
 
 define(['ionic', 'js/services/services'], function () {
     angular.module('weather.services')
-        .factory('initService', ['$q', '$timeout', '$ionicPlatform', '$ionicHistory', '$cordovaToast', 'configService', 'locationService', 'APPCONSTANTS',
-            function ($q, $timeout, $ionicPlatform, $ionicHistory, $cordovaToast, configService, locationService, APPCONSTANTS) {
+        .factory('initService', ['$q', '$timeout', '$ionicPlatform', '$ionicHistory', '$cordovaToast', 'cityWeatherService', 'configService', 'locationService', 'APPCONSTANTS',
+            function ($q, $timeout, $ionicPlatform, $ionicHistory, $cordovaToast, cityWeatherService, configService, locationService, APPCONSTANTS) {
                 var _initDefer = $q.defer(),
                     _confirmExit = false,
                     o = {
@@ -13,6 +13,7 @@ define(['ionic', 'js/services/services'], function () {
 
                 var task = [configService.loadingPromise, locationService.loadingPromise];
                 $q.all(task).then(function () {
+                    cityWeatherService.init();
                     _initDefer.resolve();
                 });
 

@@ -1,7 +1,12 @@
 
-<ion-view view-title="管理城市" class="weather-pane">
-    <ion-content>
-
+<ion-view view-title="管理城市" class="weather-pane manager-view">
+    <ion-content has-bouncing="true">
+        <ion-list class="city-list">
+            <ion-item class="city-item" ng-repeat="city in data.cityList">
+                {{city.citynm}}
+                <ion-option-button class="ion-ios-trash-outline" ng-click="deleteCity(city.cityid)"></ion-option-button>
+            </ion-item>
+        </ion-list>
     </ion-content>
     <ion-footer-bar class="manager-footer-bar">
         <div class="function-bar">

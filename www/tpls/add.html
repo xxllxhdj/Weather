@@ -15,7 +15,7 @@
                 <ion-scroll has-bouncing="true">
                     <ion-list>
                         <ion-item class="suggest-row" ng-repeat="rows in data.suggestCity">
-                            <div class="col" ng-repeat="item in rows">{{item.citynm}}</div>
+                            <a class="col" ng-repeat="item in rows" ng-click="addCity(item)">{{item.citynm}}</a>
                         </ion-item>
                     </ion-list>
                 </ion-scroll>
@@ -27,9 +27,9 @@
             <div class="search-body">
                 <ion-scroll has-bouncing="true">
                     <ion-list class="search-list">
-                        <ion-item class="search-item" ng-repeat="item in data.searchCity">
+                        <a class="item search-item" ng-repeat="item in data.searchCity" ng-click="addCity(item)">
                             {{item.citynm + ' ' + item.cityno}}
-                        </ion-item>
+                        </a>
                     </ion-list>
                 </ion-scroll>
             </div>
