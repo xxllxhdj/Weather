@@ -1,8 +1,8 @@
 
 define(['ionic', 'js/services/services'], function () {
     angular.module('weather.services')
-        .factory('locationService', ['$q', '$http', 'APPCONSTANTS',
-            function ($q, $http, APPCONSTANTS) {
+        .factory('locationService', ['$q', '$http', '$filter', 'APPCONSTANTS',
+            function ($q, $http, $filter, APPCONSTANTS) {
                 var configDefer = $q.defer(),
                     cityCache = [],
                     suggestCityCache = [],
@@ -14,6 +14,13 @@ define(['ionic', 'js/services/services'], function () {
 
                 o.getSuggestCity = function () {
                     return suggestCityCache;
+                };
+                o.filterCity = function (filter) {
+                    return $filter('filter')(cityCache, function (city) {
+                        if (city.citynm.indexOf(filter) === 0 || city.cityno.indexOf(filter) === 0) {
+                            return true;
+                        }
+                    });
                 };
 
                 return o;

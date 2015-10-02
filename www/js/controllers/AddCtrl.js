@@ -4,13 +4,14 @@ define(['ionic', 'js/controllers/controllers'], function () {
         .controller('AddCtrl', ['$scope', 'locationService', 'initService', function ($scope, locationService, initService) {
             $scope.data = {
                 search: '',
-                suggestCity: []
+                suggestCity: [],
+                searchCity: []
             };
 
             initService.initPromise.then(init);
 
             $scope.$watch('data.search', function (search) {
-                //console.log(search);
+                $scope.data.searchCity = locationService.filterCity(search);
             });
 
             $scope.clearSearch = function () {
