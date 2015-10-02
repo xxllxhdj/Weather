@@ -2,21 +2,24 @@
 define([
     'ionic',
     'ngCordova',
+    'ngDebounce',
     'js/help',
 
     'js/controllers/controllers',
     'js/controllers/HomeCtrl',
+    'js/controllers/AddCtrl',
 
     'js/services/services',
     'js/services/initService',
     'js/services/configService',
+    'js/services/locationService',
     'js/services/weatherService',
 
     'js/utility/utility',
     'js/utility/APPCONSTANTS',
     'js/utility/utilService'
 ], function () {
-    angular.module('weather', ['ionic', 'ngCordova', 'weather.controllers', 'weather.services', 'weather.utility'])
+    angular.module('weather', ['ionic', 'ngCordova', 'debounce', 'weather.controllers', 'weather.services', 'weather.utility'])
 
         .run(['$ionicPlatform', '$timeout', 'initService', 'APPCONSTANTS',
             function($ionicPlatform, $timeout, initService, APPCONSTANTS) {
@@ -58,6 +61,11 @@ define([
                     .state('manager', {
                         url: '/manager',
                         templateUrl: 'tpls/manager.html'
+                    })
+                    .state('add', {
+                        url: '/add',
+                        templateUrl: 'tpls/add.html',
+                        controller: 'AddCtrl'
                     });
 
                 $urlRouterProvider.otherwise('/home');

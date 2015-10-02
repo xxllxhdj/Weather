@@ -48,7 +48,6 @@ define(['ionic', 'js/services/services'], function () {
                     } else {
                         configDefer.resolve();
                     }
-
                 }
                 function initAppFileDir () {
                     var defer = $q.defer(),

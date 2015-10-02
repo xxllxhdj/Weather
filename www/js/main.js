@@ -7,10 +7,14 @@ requirejs.config({
     paths: {
         app: 'js/app',
         ionic: 'lib/ionic/js/ionic.bundle',
-        ngCordova: 'lib/ngCordova/dist/ng-cordova'
+        ngCordova: 'lib/ngCordova/dist/ng-cordova',
+        ngDebounce: 'lib/ng-debounce/angular-debounce'
     },
     shim: {
         ngCordova: {
+            deps: ['ionic']
+        },
+        ngDebounce: {
             deps: ['ionic']
         }
     }
