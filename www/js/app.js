@@ -9,10 +9,12 @@ define([
 
     'js/services/services',
     'js/services/initService',
+    'js/services/configService',
     'js/services/weatherService',
 
     'js/utility/utility',
-    'js/utility/APPCONSTANTS'
+    'js/utility/APPCONSTANTS',
+    'js/utility/utilService'
 ], function () {
     angular.module('weather', ['ionic', 'ngCordova', 'weather.controllers', 'weather.services', 'weather.utility'])
 
@@ -52,6 +54,10 @@ define([
                         url: '/home',
                         templateUrl: 'tpls/home.html',
                         controller: 'HomeCtrl'
+                    })
+                    .state('manager', {
+                        url: '/manager',
+                        templateUrl: 'tpls/manager.html'
                     });
 
                 $urlRouterProvider.otherwise('/home');

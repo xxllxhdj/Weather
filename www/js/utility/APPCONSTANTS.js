@@ -1,6 +1,6 @@
 
 define(['ionic', 'js/utility/utility'], function () {
-    angular.module('weather.utility', [])
+    angular.module('weather.utility')
         .constant('APPCONSTANTS', {
             appName: 'cn.personal.weather',
             configFileName: 'config.txt',

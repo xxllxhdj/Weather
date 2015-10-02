@@ -1,8 +1,8 @@
 
 define(['ionic', 'js/services/services'], function () {
     angular.module('weather.services')
-        .factory('initService', ['$q', '$timeout', '$ionicPlatform', '$ionicHistory', '$cordovaToast', 'APPCONSTANTS',
-            function ($q, $timeout, $ionicPlatform, $ionicHistory, $cordovaToast, APPCONSTANTS) {
+        .factory('initService', ['$q', '$timeout', '$ionicPlatform', '$ionicHistory', '$cordovaToast', 'configService', 'APPCONSTANTS',
+            function ($q, $timeout, $ionicPlatform, $ionicHistory, $cordovaToast, configService, APPCONSTANTS) {
                 var _initDefer = $q.defer(),
                     _confirmExit = false,
                     o = {
@@ -11,7 +11,9 @@ define(['ionic', 'js/services/services'], function () {
 
                 start();
 
-                _initDefer.resolve();
+                configService.loadingPromise.then(function () {
+                    _initDefer.resolve();
+                });
 
                 return o;
 
