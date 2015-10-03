@@ -169,7 +169,8 @@
 }
 .weather-range .weather {
     position: absolute;
-    bottom: 2px;
+    width: 30px;
+    bottom: 12px;
     left: 50%;
     font-size: 50px;
     transform: translateX(-50%);
@@ -214,6 +215,20 @@
 .weather-slide-box  .slider-pager .slider-pager-page {
     color: #fff;
     font-size: 8px;
+}
+
+.weather-list .item {
+    background: transparent;
+    border: none;
+    text-align: center;
+    color: #fff;
+    padding: 0 16px 16px;
+}
+.weather-list .weather {
+    font-size: 140%;
+}
+.weather-list .city {
+    font-size: 160%;
 }
 
 /*********************************************************home.html****************************************************/

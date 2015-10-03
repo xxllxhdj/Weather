@@ -33,11 +33,8 @@ define(['ionic', 'js/services/services'], function () {
                     if (cityWeather.weather.length > 0) {
                         defer.resolve(cityWeather.weather);
                     } else {
-                        queryCityWeather(cityId).then(function (result) {
-                            cityWeather.weather = result.weather;
-                            cityWeather.weather.aqi = result.airQuality.aqi;
-                            cityWeather.weather.aqiLevnm = result.airQuality.aqiLevnm;
-                            cityWeather.airQuality = result.airQuality;
+                        queryCityWeather(cityId).then(function (weather) {
+                            cityWeather.weather = weather;
                             configService.set('weather', weatherCache).then(function () {
                                 defer.resolve(cityWeather.weather);
                             }, function () {
@@ -101,16 +98,13 @@ define(['ionic', 'js/services/services'], function () {
                 function queryCityWeather (cityId) {
                     var defer = $q.defer();
 
-                    var task = [],
-                        result = {};
-                    task.push(weatherService.getRealTimeWeather(cityId).then(function (weather) {
-                        result.weather = weather;
-                    }));
-                    task.push(weatherService.getAirQuality(cityId).then(function (airQuality) {
-                        result.airQuality = airQuality;
-                    }));
-                    $q.all(task).then(function () {
-                        defer.resolve(result);
+                    weatherService.getRealTimeWeather(cityId).then(function (weather) {
+                        weatherService.getAirQuality(cityId).then(function (airQuality) {
+                            angular.extend(weather, airQuality);
+                            defer.resolve(weather);
+                        }, function () {
+                            defer.reject();
+                        });
                     }, function () {
                         defer.reject();
                     });

@@ -14,7 +14,7 @@ define(['ionic', 'js/controllers/controllers'], function () {
                 });
 
                 $scope.slideHasChanged = function (index) {
-                    console.log(index);
+                    updateWeather(index);
                 };
                 $scope.goManager = function () {
                     $state.go('manager');
@@ -25,9 +25,24 @@ define(['ionic', 'js/controllers/controllers'], function () {
                     if ($scope.data.cityList.length === 0) {
                         return;
                     }
-                    cityWeatherService.getCityWeather($scope.data.cityList[0].cityid).then(function (weather) {
-                        $scope.data.cityList[0].weather = weather;
-                        console.log(weather);
+                    updateWeather(0);
+                }
+                function updateWeather (index) {
+                    var weather = $scope.data.cityList[index].weather;
+                    if (weather) {
+                        return;
+                    }
+                    cityWeatherService.getCityWeather($scope.data.cityList[index].cityid).then(function (weather) {
+                        $scope.data.cityList[index].weather = {
+                            aqi: weather.aqi,
+                            aqiLevnm: weather.aqiLevnm,
+                            tHigh: weather.tHigh,
+                            tLow: weather.tLow,
+                            temp: weather.temp,
+                            weatid: weather.weatid,
+                            weather: weather.weather,
+                            week: weather.week
+                        };
                     });
                 }
             }

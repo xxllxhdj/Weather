@@ -21,7 +21,8 @@ define(['ionic', 'js/services/services'], function () {
                         if (data.success === "1") {
                             var result = data.result;
                             defer.resolve({
-                                weaid: result.weaid,
+                                weatid: result.weatid,
+                                weather: result.weather,
                                 days: result.days,
                                 week: result.week,
                                 temp: parseInt(result.temp_curr),

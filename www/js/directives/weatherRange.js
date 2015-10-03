@@ -10,7 +10,7 @@ define(['ionic'], function () {
             template:
             '<div class="weather-range" ng-class="cssClass">' +
                 '<i class="temp">{{weather.temp + "&deg;"}}</i>' +
-                '<i class="icon ion-ios-rainy-outline weather"></i>' +
+                '<img class="weather" ng-src="{{\'img/weather/\'+weather.weatid+\'.png\'}}">' +
                 '<i class="range-temp low">{{weather.tLow + "&deg;C"}}</i>' +
                 '<i class="range-temp high">{{weather.tHigh + "&deg;C"}}</i>' +
             '</div>',
