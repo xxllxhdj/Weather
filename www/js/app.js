@@ -5,6 +5,8 @@ define([
     'ngDebounce',
     'js/help',
 
+    'js/directives/directives',
+
     'js/controllers/controllers',
     'js/controllers/HomeCtrl',
     'js/controllers/ManagerCtrl',
@@ -19,6 +21,7 @@ define([
 
     'js/utility/utility',
     'js/utility/APPCONSTANTS',
+    'js/utility/tip',
     'js/utility/utilService'
 ], function () {
     angular.module('weather', ['ionic', 'ngCordova', 'debounce', 'weather.controllers', 'weather.services', 'weather.utility'])

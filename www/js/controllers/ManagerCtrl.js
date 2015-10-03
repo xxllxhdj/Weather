@@ -6,7 +6,7 @@ define(['ionic', 'js/controllers/controllers'], function () {
                 cityList: []
             };
 
-            $scope.$on('$ionicView.afterEnter', init);
+            $scope.$on('$ionicView.beforeEnter', init);
 
             $scope.deleteCity = function (cityId) {
                 cityWeatherService.deleteCity(cityId).then(function () {

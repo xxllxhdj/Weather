@@ -23,7 +23,7 @@ define(['ionic', 'js/services/services'], function () {
                     var defer = $q.defer();
 
                     if (checkExist(city)) {
-                        defer.reject();
+                        defer.reject('该城市已添加');
                     } else {
                         weatherCache.push({
                             cityid: city.cityid,
@@ -33,7 +33,7 @@ define(['ionic', 'js/services/services'], function () {
                         configService.set('weather', weatherCache).then(function () {
                             defer.resolve();
                         }, function () {
-                            defer.reject();
+                            defer.reject('添加城市失败');
                         });
                     }
 
