@@ -125,6 +125,77 @@
 
 /*******************************************************weatherTips****************************************************/
 
+/*****************************************************weather range****************************************************/
+
+.weather-range {
+    position: relative;
+    display: inline-block;
+    height: 270px;
+    width: 100%;
+    color: #fff;
+}
+.range-container {
+    height: 100%;
+    width: 100%;
+}
+.range-container .rag,
+.range-container .active-rag {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+.range-container .rag {
+    bottom: 12px;
+    width: 2px;
+    height: 20px;
+    background: #fff;
+    -webkit-transform-origin: 0 -100px;
+    transform-origin: 0 -100px;
+}
+.range-container .rag:first-child,
+.range-container .rag:last-child {
+    width: 1px;
+    height: 26px;
+    bottom: 7px;
+}
+.weather-range .temp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 80px;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+.weather-range .weather {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    font-size: 50px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+.weather-range .range-temp {
+    position: absolute;
+    left: 50%;
+    font-size: 14px;
+}
+.weather-range .low {
+    top: 2px;
+    margin-left: 30px;
+}
+.range-container .active-rag {
+    bottom: 45px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    -webkit-transform-origin: 0 -80px;
+    transform-origin: 0 -80px;
+    background: #fff;
+}
+
+/*****************************************************weather range****************************************************/
+
 /*********************************************************home.html****************************************************/
 
 .weather-slide-box {

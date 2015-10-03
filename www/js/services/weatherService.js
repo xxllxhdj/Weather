@@ -19,7 +19,18 @@ define(['ionic', 'js/services/services'], function () {
                         timeout: APPCONSTANTS.httpTimeOut
                     }).success(function (data) {
                         if (data.success === "1") {
-                            defer.resolve(data.result);
+                            var result = data.result;
+                            defer.resolve({
+                                weaid: result.weaid,
+                                days: result.days,
+                                week: result.week,
+                                temp: parseInt(result.temp_curr),
+                                tHigh: parseInt(result.temp_high),
+                                tLow: parseInt(result.temp_low),
+                                humidity: result.humidity,
+                                wind: result.wind,
+                                winp: result.winp
+                            });
                         } else {
                             defer.reject();
                         }
@@ -53,7 +64,7 @@ define(['ionic', 'js/services/services'], function () {
 
                     return defer.promise;
                 };
-                o.getPMQuality = function (weaid) {
+                o.getAirQuality = function (weaid) {
                     var defer = $q.defer();
 
                     var url = APPCONSTANTS.getPMQualityURL.format({
@@ -67,7 +78,14 @@ define(['ionic', 'js/services/services'], function () {
                         timeout: APPCONSTANTS.httpTimeOut
                     }).success(function (data) {
                         if (data.success === "1") {
-                            defer.resolve(data.result);
+                            var result = data.result;
+                            defer.resolve({
+                                aqi: result.aqi,
+                                aqiScope: result.aqi_scope,
+                                aqiLevid: result.aqi_levid,
+                                aqiLevnm: result.aqi_levnm,
+                                aqiRemark: result.aqi_remark
+                            });
                         } else {
                             defer.reject();
                         }

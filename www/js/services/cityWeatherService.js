@@ -1,8 +1,8 @@
 
 define(['ionic', 'js/services/services'], function () {
     angular.module('weather.services')
-        .factory('cityWeatherService', ['$q', '$http', 'configService', 'APPCONSTANTS',
-            function ($q, $http, configService, APPCONSTANTS) {
+        .factory('cityWeatherService', ['$q', '$http', 'weatherService', 'configService', 'APPCONSTANTS',
+            function ($q, $http, weatherService, configService, APPCONSTANTS) {
                 var o = {},
                     weatherCache = [];
 
@@ -18,6 +18,37 @@ define(['ionic', 'js/services/services'], function () {
                         });
                     });
                     return cityList;
+                };
+                o.getCityWeather = function (cityId) {
+                    var defer = $q.defer(),
+                        len = weatherCache.length,
+                        cityWeather;
+
+                    for (var i = 0; i < len; i++) {
+                        if (weatherCache[i].cityid === cityId) {
+                            cityWeather = weatherCache[i];
+                            break;
+                        }
+                    }
+                    if (cityWeather.weather.length > 0) {
+                        defer.resolve(cityWeather.weather);
+                    } else {
+                        queryCityWeather(cityId).then(function (result) {
+                            cityWeather.weather = result.weather;
+                            cityWeather.weather.aqi = result.airQuality.aqi;
+                            cityWeather.weather.aqiLevnm = result.airQuality.aqiLevnm;
+                            cityWeather.airQuality = result.airQuality;
+                            configService.set('weather', weatherCache).then(function () {
+                                defer.resolve(cityWeather.weather);
+                            }, function () {
+                                defer.reject();
+                            });
+                        }, function () {
+                            defer.reject();
+                        });
+                    }
+
+                    return defer.promise;
                 };
                 o.addCity = function (city) {
                     var defer = $q.defer();
@@ -67,6 +98,26 @@ define(['ionic', 'js/services/services'], function () {
 
                 return o;
 
+                function queryCityWeather (cityId) {
+                    var defer = $q.defer();
+
+                    var task = [],
+                        result = {};
+                    task.push(weatherService.getRealTimeWeather(cityId).then(function (weather) {
+                        result.weather = weather;
+                    }));
+                    task.push(weatherService.getAirQuality(cityId).then(function (airQuality) {
+                        result.airQuality = airQuality;
+                    }));
+                    $q.all(task).then(function () {
+                        defer.resolve(result);
+                    }, function () {
+                        defer.reject();
+                    });
+
+                    return defer.promise;
+
+                }
                 function checkExist (city) {
                     var len = weatherCache.length,
                         exist = false;

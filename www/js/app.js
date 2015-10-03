@@ -6,6 +6,7 @@ define([
     'js/help',
 
     'js/directives/directives',
+    'js/directives/weatherRange',
 
     'js/controllers/controllers',
     'js/controllers/HomeCtrl',
@@ -24,7 +25,7 @@ define([
     'js/utility/tip',
     'js/utility/utilService'
 ], function () {
-    angular.module('weather', ['ionic', 'ngCordova', 'debounce', 'weather.controllers', 'weather.services', 'weather.utility'])
+    angular.module('weather', ['ionic', 'ngCordova', 'debounce', 'weather.controllers', 'weather.services', 'weather.directives', 'weather.utility'])
 
         .run(['$ionicPlatform', '$timeout', 'initService', 'APPCONSTANTS',
             function($ionicPlatform, $timeout, initService, APPCONSTANTS) {
@@ -60,6 +61,7 @@ define([
                 $stateProvider
                     .state('home', {
                         url: '/home',
+                        cache: false,
                         templateUrl: 'tpls/home.html',
                         controller: 'HomeCtrl'
                     })
