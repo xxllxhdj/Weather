@@ -12,6 +12,8 @@ define([
     'js/controllers/HomeCtrl',
     'js/controllers/ManagerCtrl',
     'js/controllers/AddCtrl',
+    'js/controllers/MoreCtrl',
+    'js/controllers/QualityCtrl',
 
     'js/services/services',
     'js/services/initService',
@@ -74,6 +76,16 @@ define([
                         url: '/add',
                         templateUrl: 'tpls/add.html',
                         controller: 'AddCtrl'
+                    })
+                    .state('more', {
+                        url: '/more?cityid',
+                        templateUrl: 'tpls/more.html',
+                        controller: 'MoreCtrl'
+                    })
+                    .state('quality', {
+                        url: '/quality?cityid',
+                        templateUrl: 'tpls/quality.html',
+                        controller: 'QualityCtrl'
                     });
 
                 $urlRouterProvider.otherwise('/home');

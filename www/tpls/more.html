@@ -1,0 +1,23 @@
+
+<ion-view view-title="更多指标" class="weather-pane">
+    <ion-content has-bouncing="true">
+        <ion-list class="more-list">
+            <ion-item class="more-item">
+                <span>湿度</span>
+                <span>{{data.weather.humidity}}</span>
+            </ion-item>
+            <ion-item class="more-item">
+                <span>体感温度</span>
+                <span>{{data.weather.temp + '&deg;C'}}</span>
+            </ion-item>
+            <ion-item class="more-item">
+                <span>风向</span>
+                <span>{{data.weather.wind}}</span>
+            </ion-item>
+            <ion-item class="more-item">
+                <span>风力</span>
+                <span>{{data.weather.winp}}</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

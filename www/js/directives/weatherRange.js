@@ -43,7 +43,7 @@ define(['ionic'], function () {
                         if (tHigh === tLow) {
                             deltaT = 5;
                         } else {
-                            deltaT = parseInt(30 / (tHigh - tLow) + 0.5);
+                            deltaT = parseInt(30 / (tHigh - tLow));
                             if (deltaT < 1) {
                                 deltaT = 1;
                             } else if (deltaT > 5) {

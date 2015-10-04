@@ -9,13 +9,18 @@ define(['ionic', 'js/services/services'], function () {
                 o.init = function () {
                     weatherCache = configService.get('weather');
                 };
-                o.getCityList = function () {
-                    var cityList = [];
+                o.getCityList = function (includeWeather) {
+                    var cityList = [],
+                        city;
                     angular.forEach(weatherCache, function (cityWeather) {
-                        cityList.push({
+                        city = {
                             cityid: cityWeather.cityid,
                             citynm: cityWeather.citynm
-                        });
+                        };
+                        if (includeWeather) {
+                            city.weather = cityWeather.weather;
+                        }
+                        cityList.push(city);
                     });
                     return cityList;
                 };
@@ -30,7 +35,7 @@ define(['ionic', 'js/services/services'], function () {
                             break;
                         }
                     }
-                    if (cityWeather.weather.length > 0) {
+                    if (cityWeather.weather) {
                         defer.resolve(cityWeather.weather);
                     } else {
                         queryCityWeather(cityId).then(function (weather) {
@@ -56,7 +61,7 @@ define(['ionic', 'js/services/services'], function () {
                         weatherCache.push({
                             cityid: city.cityid,
                             citynm: city.citynm,
-                            weather: []
+                            weather: null
                         });
                         configService.set('weather', weatherCache).then(function () {
                             defer.resolve();

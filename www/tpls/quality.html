@@ -1,0 +1,23 @@
+
+<ion-view view-title="空气质量" class="weather-pane">
+    <ion-content has-bouncing="true">
+        <ion-list class="more-list">
+            <ion-item class="more-item">
+                <span>aqi值</span>
+                <span>{{data.weather.aqi}}</span>
+            </ion-item>
+            <ion-item class="more-item">
+                <span>指数范围</span>
+                <span>{{data.weather.aqiScope}}</span>
+            </ion-item>
+            <ion-item class="more-item">
+                <span>级别</span>
+                <span>{{data.weather.aqiLevid + '级&nbsp&nbsp' + data.weather.aqiLevnm}}</span>
+            </ion-item>
+            <ion-item class="more-item">
+                <span>注意事项</span>
+                <span>{{data.weather.aqiRemark}}</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

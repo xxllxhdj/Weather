@@ -1,6 +1,6 @@
 <ion-view view-title="" class="weather-pane">
     <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-android-more-vertical"></button>
+        <button class="button button-icon button-clear ion-android-more-vertical" ng-click="goMore()"></button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
         <button class="button button-icon button-clear ion-navicon" ng-click="goManager()"></button>
@@ -14,7 +14,10 @@
                     <ion-item class="weather">{{city.weather.weather}}</ion-item>
                     <ion-item class="city">{{city.citynm}}</ion-item>
                     <ion-item>{{city.weather.week}}</ion-item>
-                    <ion-item>{{'空气质量 ' + city.weather.aqiLevnm + ' ' + city.weather.aqi}}</ion-item>
+                    <ion-item ng-click="goQuality()">
+                        <span>{{'空气质量&nbsp&nbsp' + city.weather.aqiLevnm + '&nbsp&nbsp' + city.weather.aqi + '&nbsp&nbsp'}}</span>
+                        <i class="icon ion-ios-arrow-right"></i>
+                    </ion-item>
                 </ion-list>
             </ion-slide>
         </ion-slide-box>
