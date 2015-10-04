@@ -19,6 +19,7 @@ define(['ionic', 'js/services/services'], function () {
                         };
                         if (includeWeather) {
                             city.weather = cityWeather.weather;
+                            city.future = cityWeather.future;
                         }
                         cityList.push(city);
                     });
@@ -36,12 +37,17 @@ define(['ionic', 'js/services/services'], function () {
                         }
                     }
                     if (cityWeather.weather) {
-                        defer.resolve(cityWeather.weather);
+                        defer.resolve(cityWeather);
                     } else {
                         queryCityWeather(cityId).then(function (weather) {
                             cityWeather.weather = weather;
-                            configService.set('weather', weatherCache).then(function () {
-                                defer.resolve(cityWeather.weather);
+                            weatherService.getFutureWeather(cityId).then(function (future) {
+                                cityWeather.future = future;
+                                configService.set('weather', weatherCache).then(function () {
+                                    defer.resolve(cityWeather);
+                                }, function () {
+                                    defer.reject();
+                                });
                             }, function () {
                                 defer.reject();
                             });

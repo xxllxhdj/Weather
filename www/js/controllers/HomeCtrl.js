@@ -44,8 +44,9 @@ define(['ionic', 'js/controllers/controllers'], function () {
                     if (weather) {
                         return;
                     }
-                    cityWeatherService.getCityWeather($scope.data.cityList[index].cityid).then(function (weather) {
-                        $scope.data.cityList[index].weather = weather;
+                    cityWeatherService.getCityWeather($scope.data.cityList[index].cityid).then(function (cityWeather) {
+                        $scope.data.cityList[index].weather = cityWeather.weather;
+                        $scope.data.cityList[index].future = cityWeather.future;
                     });
                 }
             }

@@ -239,6 +239,36 @@
     font-size: 160%;
 }
 
+.future-bar {
+    position: absolute;
+    bottom: 35px;
+    overflow: hidden;
+    margin-top: -1px;
+    padding-top: 1px;
+    margin-bottom: -1px;
+    width: 100%;
+    height: auto;
+}
+.future-wrapper {
+    background: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px 5px;
+    color: #fff;
+}
+.future-wrapper img {
+    width: 30px;
+}
+.future-wrapper .col {
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+.future-wrapper .col:last-child {
+    border-right: none;
+}
+.future-wrapper .col div {
+    margin: 5px 0;
+}
+
 /*********************************************************home.html****************************************************/
 
 /*******************************************************manager.html***************************************************/

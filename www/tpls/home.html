@@ -19,6 +19,16 @@
                         <i class="icon ion-ios-arrow-right"></i>
                     </ion-item>
                 </ion-list>
+                <div class="future-bar">
+                    <div class="row future-wrapper">
+                        <div class="col" ng-repeat="item in city.future" ng-click="addCity(item)">
+                            <img class="weather" ng-src="{{'img/weather/' + item.weatid + '.png'}}">
+                            <div>{{item.weather}}</div>
+                            <div>{{item.tHigh + "&deg;/" + item.tLow + "&deg;"}}</div>
+                            <div>{{item.week}}</div>
+                        </div>
+                    </div>
+                </div>
             </ion-slide>
         </ion-slide-box>
     </ion-content>
