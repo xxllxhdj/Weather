@@ -199,6 +199,13 @@
 
 /*********************************************************home.html****************************************************/
 
+.home-view .has-header {
+    top: 34px;
+}
+.platform-android.platform-cordova:not(.fullscreen) .home-view .has-header {
+    top: 54px;
+}
+
 .weather-slide-box {
     position: absolute;
     top: 0;
@@ -241,7 +248,7 @@
 
 .future-bar {
     position: absolute;
-    bottom: 35px;
+    bottom: 30px;
     overflow: hidden;
     margin-top: -1px;
     padding-top: 1px;

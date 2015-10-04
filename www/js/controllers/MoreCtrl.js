@@ -1,22 +1,18 @@
 
 define(['ionic', 'js/controllers/controllers'], function () {
     angular.module('weather.controllers')
-        .controller('MoreCtrl', ['$scope', '$stateParams', 'cityWeatherService', 'initService',
-            function ($scope, $stateParams, cityWeatherService, initService) {
+        .controller('MoreCtrl', ['$scope', '$stateParams', 'cityWeatherService',
+            function ($scope, $stateParams, cityWeatherService) {
                 $scope.data = {
                     weather: {}
                 };
 
-                $scope.$on('$ionicView.beforeEnter', function () {
-                    initService.initPromise.then(function () {
-                        init();
-                    });
-                });
+                init();
 
 
                 function init () {
-                    cityWeatherService.getCityWeather($stateParams.cityid).then(function (weather) {
-                        $scope.data.weather = weather;
+                    cityWeatherService.getCityWeather($stateParams.cityid).then(function (cityWeather) {
+                        $scope.data.weather = cityWeather.weather;
                     });
                 }
             }

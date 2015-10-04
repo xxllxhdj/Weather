@@ -37,7 +37,7 @@ define(['ionic', 'js/controllers/controllers'], function () {
                     if ($scope.data.cityList.length === 0) {
                         return;
                     }
-                    updateWeather(0);
+                    updateWeather(cityIndex);
                 }
                 function updateWeather (index) {
                     var weather = $scope.data.cityList[index].weather;

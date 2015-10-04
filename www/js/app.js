@@ -65,7 +65,12 @@ define([
                         url: '/home',
                         cache: false,
                         templateUrl: 'tpls/home.html',
-                        controller: 'HomeCtrl'
+                        controller: 'HomeCtrl',
+                        resolve: {
+                            'loadingConfig': ['initService', function (initService) {
+                                return initService.initPromise;
+                            }]
+                        }
                     })
                     .state('manager', {
                         url: '/manager',
